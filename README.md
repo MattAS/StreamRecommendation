@@ -1,4 +1,4 @@
-# StreamRecommendation
+# Stream Recommendation
 ## Project Description
 Recently, there has been alot of social media platforms adopting live streaming for purposes other than entertaiment. More companies are using them to promote items by using mediums such as the new Tiktok shop, Instagram Live, or sponsored streams on Twitch. With an increase in live streaming adoption, companies need to adopt a new method to recommend live streams to their users. The concept of recommending live streams are different to recommending Youtube videos since a single live stream may contain multiple topics. My goal for this project is to create a recommendation engine for live streams. To be more specific, I will be using my own Twitch data along with other user data from Twitch streams. 
 
