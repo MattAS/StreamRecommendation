@@ -4,6 +4,8 @@ const { MongoClient } = require("mongodb");
 const cron = require("node-cron");
 const shell = require("shelljs");
 
+require("dotenv").config();
+
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -25,8 +27,8 @@ const check_live = async (streamer) => {
   const instance = axios.create({
     baseURL: "https://api.twitch.tv/helix/streams",
     headers: {
-      "Client-ID": "7cud78uflv2g253xvxhle6jtcal7dk",
-      Authorization: "Bearer 67hfj30r7jwlqj9iow26xjk0paeidv",
+      "Client-ID": process.env.CLIENT_ID,
+      Authorization: process.env.BEARER_TOKEN,
     },
   });
   const streamers_100 = streamer.slice(0, 100);
@@ -116,8 +118,7 @@ const get_chatters = async (streamers, client) => {
 
 function main() {
   const streamers = read_streamer_list();
-  const uri =
-    "mongodb+srv://dbUser:dbUserPassword@cluster0.jemq8.mongodb.net/database?retryWrites=true&w=majority";
+  const uri = `mongodb+srv://dbUser:${process.env.DB_PASS}@cluster0.jemq8.mongodb.net/database?retryWrites=true&w=majority`;
   const instance = new MongoClient(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
