@@ -109,8 +109,6 @@ const get_chatters = async (streamers, client) => {
     } finally {
       client.close();
     }
-
-    console.log(streamerData);
   } catch (err) {
     console.error(err);
   }
@@ -133,7 +131,7 @@ function main() {
 
 main();
 
-cron.schedule("* * 3 * * *", function () {
+cron.schedule("0 0 */3 * * *", function () {
   console.log("Getting Stream Data...");
   main();
 });
