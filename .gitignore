@@ -14,3 +14,9 @@ pip-selfcheck.json
 
 ### dotenv ###
 .env
+
+###csv###
+data/**/*.csv
+
+###pkl###
+Analysis/chatters.pkl
